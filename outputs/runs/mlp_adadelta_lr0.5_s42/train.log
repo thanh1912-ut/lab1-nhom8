@@ -26,3 +26,7 @@
 2026-08-27 05:09:18,161 | EPOCH 21 train_loss=0.189557
 2026-08-27 05:09:25,052 | EPOCH 22 train_loss=0.184310
 2026-08-27 05:09:29,720 | INTERRUPTED epoch=22 batch=595
+2026-08-27 11:18:44,355 | START mlp_adadelta_lr0.5_s42 opt=adadelta lr=0.5 seed=42 device=cuda epochs=150
+2026-08-27 11:18:51,234 | EPOCH 1 train_loss=0.591787
+2026-08-27 11:18:57,953 | EPOCH 2 train_loss=0.403388
+2026-08-27 11:19:04,779 | EPOCH 3 train_loss=0.358191
