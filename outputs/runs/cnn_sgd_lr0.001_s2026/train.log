@@ -1,0 +1,1 @@
+2026-08-27 04:48:24,640 | START cnn_sgd_lr0.001_s2026 opt=sgd lr=0.001 seed=2026 device=cuda epochs=150
