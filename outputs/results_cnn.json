@@ -213,5 +213,26 @@
     "stopped_early": false,
     "done": false,
     "train_time_sec": 266.42
+  },
+  "cnn_sgd_lr0.05_s123": {
+    "run_id": "cnn_sgd_lr0.05_s123",
+    "model": "cnn",
+    "optimizer": "sgd",
+    "lr": 0.05,
+    "seed": 123,
+    "device": "cuda",
+    "epochs": [],
+    "train_loss": [],
+    "val_epoch": [],
+    "val_loss": [],
+    "val_acc": [],
+    "val_precision": [],
+    "val_recall": [],
+    "val_f1": [],
+    "best_epoch": null,
+    "best_val_loss": null,
+    "stopped_early": false,
+    "done": false,
+    "train_time_sec": 0.0
   }
 }
