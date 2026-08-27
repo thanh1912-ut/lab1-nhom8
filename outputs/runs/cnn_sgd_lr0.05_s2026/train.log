@@ -48,3 +48,4 @@
 2026-08-27 04:37:15,157 | EPOCH 40 train_loss=0.076827
 2026-08-27 04:37:15,780 | EPOCH 40 VAL loss=0.323024 acc=0.9070 pre=0.9097 rec=0.9074 f1=0.9073
 2026-08-27 04:37:20,625 | INTERRUPTED epoch=40 batch=514
+2026-08-27 09:46:51,930 | START cnn_sgd_lr0.05_s2026 opt=sgd lr=0.05 seed=2026 device=cuda epochs=150
