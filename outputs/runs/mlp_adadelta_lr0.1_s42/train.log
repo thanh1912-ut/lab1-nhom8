@@ -1,0 +1,2 @@
+2026-08-27 05:16:40,531 | START mlp_adadelta_lr0.1_s42 opt=adadelta lr=0.1 seed=42 device=cuda epochs=150
+2026-08-27 05:16:47,692 | EPOCH 1 train_loss=0.780385
