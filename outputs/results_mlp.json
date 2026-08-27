@@ -1410,5 +1410,60 @@
       "recall": 0.8557,
       "f1": 0.854702
     }
+  },
+  "mlp_adadelta_lr1.0_s2026": {
+    "run_id": "mlp_adadelta_lr1.0_s2026",
+    "model": "mlp",
+    "optimizer": "adadelta",
+    "lr": 1.0,
+    "seed": 2026,
+    "device": "cuda",
+    "epochs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "train_loss": [
+      0.575082,
+      0.402828,
+      0.354579,
+      0.330992,
+      0.31343,
+      0.29766,
+      0.286344,
+      0.281929,
+      0.274326,
+      0.267539
+    ],
+    "val_epoch": [
+      5
+    ],
+    "val_loss": [
+      0.362359
+    ],
+    "val_acc": [
+      0.869833
+    ],
+    "val_precision": [
+      0.870622
+    ],
+    "val_recall": [
+      0.870959
+    ],
+    "val_f1": [
+      0.870056
+    ],
+    "best_epoch": 5,
+    "best_val_loss": 0.362359,
+    "stopped_early": false,
+    "done": false,
+    "train_time_sec": 69.65
   }
 }
