@@ -56,10 +56,11 @@ Sau mỗi run xong, tự động commit & push lên GitHub: `results.json`, `tra
 
 ## Chạy
 
-### Trên Kaggle (khuyến nghị)
-1. Tạo PAT (scope `repo`) → thêm vào Kaggle Secrets tên `GITHUB_TOKEN`
-2. Bật GPU T4 + Internet, upload/dùng notebook `kaggle_run.ipynb`
-3. Chạy tuần tự `train_mlp.py` → `train_cnn.py`. Xem TensorBoard ngay trong notebook. Session chết → chạy lại notebook, tự resume.
+### Trên Kaggle (khuyến nghị, dual T4 song song)
+1. Tạo PAT (scope `repo`) → thêm vào Kaggle Secrets tên `GITHUB_TOKEN` (push cần token kể cả repo public)
+2. Bật **GPU T4 x2** + Internet, dùng notebook `kaggle_run.ipynb`
+3. Notebook chạy **song song 2 process**: MLP trên GPU 0, CNN trên GPU 1 (log riêng `mlp_train.out` / `cnn_train.out`, results tách file `results_mlp.json` / `results_cnn.json`, git push được lock-serialize)
+4. Xem TensorBoard ngay trong notebook khi đang train. Session chết → chạy lại notebook, tự resume.
 
 ### Local
 ```bash

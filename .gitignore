@@ -11,3 +11,6 @@ outputs/tensorboard/
 
 # Old lab outputs (kept locally in archive/)
 archive/
+
+# git backup lock
+outputs/.gitbackup.lock

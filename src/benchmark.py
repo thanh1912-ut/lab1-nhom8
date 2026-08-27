@@ -21,7 +21,21 @@ def load_config(path):
 
 
 def results_path(cfg):
-    return os.path.join(cfg["output_dir"], "results.json")
+    """Per-model results file so MLP/CNN processes can run in parallel
+    without racing on a shared results.json."""
+    return os.path.join(cfg["output_dir"], f"results_{cfg['model']}.json")
+
+
+def all_results_paths(cfg):
+    """All results files in the output dir (results_mlp.json, results_cnn.json,
+    plus legacy results.json)."""
+    out = cfg["output_dir"]
+    paths = []
+    if os.path.isdir(out):
+        for f in sorted(os.listdir(out)):
+            if f.startswith("results") and f.endswith(".json"):
+                paths.append(os.path.join(out, f))
+    return paths
 
 
 def load_results(cfg):

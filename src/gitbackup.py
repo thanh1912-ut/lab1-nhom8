@@ -59,9 +59,9 @@ def _setup_remote(cfg, root):
 
 
 def _force_add_artifacts(cfg, root):
-    """Add results.json + per-run artifacts (logs, cm PNGs, winner best.pt)."""
+    """Add results*.json + per-run artifacts (logs, cm PNGs, winner best.pt)."""
     out = cfg["output_dir"]
-    paths = [os.path.join(out, "results.json")]
+    paths = []
     runs_dir = os.path.join(out, "runs")
     if os.path.isdir(runs_dir):
         for rid in sorted(os.listdir(runs_dir)):
@@ -72,28 +72,68 @@ def _force_add_artifacts(cfg, root):
                     paths.append(p)
     # winner best.pt per (model, optimizer): lowest val loss among seeds
     import json
-    rp = os.path.join(out, "results.json")
-    if os.path.isfile(rp):
+    try:
+        from benchmark import all_results_paths
+    except ImportError:
+        import sys
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from benchmark import all_results_paths
+    winners = {}
+    for rp in all_results_paths(cfg):
         with open(rp, encoding="utf-8") as f:
             results = json.load(f)
-        winners = {}
         for rid, h in results.items():
             if not h.get("done") or h.get("best_val_loss") is None:
                 continue
             k = (h["model"], h["optimizer"])
             if k not in winners or h["best_val_loss"] < winners[k][1]:
                 winners[k] = (rid, h["best_val_loss"])
-        for (rid, _) in winners.values():
-            p = os.path.join(runs_dir, rid, "best.pt")
-            if os.path.exists(p):
-                paths.append(p)
+    paths.extend(all_results_paths(cfg))
+    for (rid, _) in winners.values():
+        p = os.path.join(runs_dir, rid, "best.pt")
+        if os.path.exists(p):
+            paths.append(p)
     add = [p for p in paths if os.path.exists(p)]
     if add:
         _run(["git", "add", "-f", "--"] + add, root)
 
 
+def _acquire_lock(cfg, timeout=300, stale_sec=900):
+    """Serialize git operations between concurrent training processes.
+    Returns True if lock acquired (caller must release), False otherwise."""
+    import time
+    lock = os.path.join(cfg["output_dir"], ".gitbackup.lock")
+    os.makedirs(cfg["output_dir"], exist_ok=True)
+    t0 = time.time()
+    while time.time() - t0 < timeout:
+        try:
+            fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+            os.write(fd, str(os.getpid()).encode())
+            os.close(fd)
+            return True
+        except FileExistsError:
+            # stale lock (holder crashed) -> break it after stale_sec
+            try:
+                if time.time() - os.path.getmtime(lock) > stale_sec:
+                    os.remove(lock)
+                    continue
+            except OSError:
+                pass
+            time.sleep(2)
+    return False
+
+
+def _release_lock(cfg):
+    lock = os.path.join(cfg["output_dir"], ".gitbackup.lock")
+    try:
+        os.remove(lock)
+    except OSError:
+        pass
+
+
 def backup(cfg, results_path=None, msg=None):
-    """Commit & push artifacts. Safe to call frequently; no-op if nothing changed."""
+    """Commit & push artifacts. Safe to call frequently; no-op if nothing
+    changed. Lock-protected so parallel processes don't corrupt git state."""
     gb = cfg.get("git_backup", {})
     if not gb.get("enabled", False):
         return False
@@ -106,6 +146,9 @@ def backup(cfg, results_path=None, msg=None):
             "git backup skipped: GITHUB_TOKEN not set. "
             "Push (write) needs a token even for public repos - "
             "add it in Kaggle Secrets to enable auto-backup.", L.YELLOW))
+        return False
+    if not _acquire_lock(cfg):
+        print(L.colorize("git backup skipped: lock busy", L.YELLOW))
         return False
     try:
         branch = _setup_remote(cfg, root)
@@ -127,3 +170,5 @@ def backup(cfg, results_path=None, msg=None):
     except Exception as e:
         print(L.colorize(f"git backup error: {e}", L.RED))
         return False
+    finally:
+        _release_lock(cfg)
