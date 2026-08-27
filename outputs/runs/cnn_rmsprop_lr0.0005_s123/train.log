@@ -1,0 +1,4 @@
+2026-08-27 13:14:08,056 | START cnn_rmsprop_lr0.0005_s123 opt=rmsprop lr=0.0005 seed=123 device=cuda epochs=150
+2026-08-27 13:14:16,168 | EPOCH 1 train_loss=0.511927
+2026-08-27 13:14:24,753 | EPOCH 2 train_loss=0.349691
+2026-08-27 13:14:33,223 | EPOCH 3 train_loss=0.305790
