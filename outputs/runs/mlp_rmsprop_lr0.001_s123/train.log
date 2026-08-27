@@ -41,3 +41,4 @@
 2026-08-27 11:28:40,981 | EPOCH 4 train_loss=0.307802
 2026-08-27 11:28:47,556 | EPOCH 5 train_loss=0.289005
 2026-08-27 11:28:48,136 | EPOCH 5 VAL loss=0.378197 acc=0.8670 pre=0.8736 rec=0.8694 f1=0.8671 BEST
+2026-08-27 12:33:04,519 | START mlp_rmsprop_lr0.001_s123 opt=rmsprop lr=0.001 seed=123 device=cuda epochs=150
