@@ -1,0 +1,5 @@
+2026-08-27 11:16:30,187 | START cnn_sgd_lr0.01_s42 opt=sgd lr=0.01 seed=42 device=mps epochs=2
+2026-08-27 11:16:36,997 | EPOCH 1 train_loss=1.264041
+2026-08-27 11:16:43,597 | EPOCH 2 train_loss=0.653407
+2026-08-27 11:16:43,889 | EPOCH 2 VAL loss=0.657290 acc=0.7410 pre=0.7951 rec=0.7401 f1=0.7465 BEST
+2026-08-27 11:16:44,061 | DONE best_epoch=2 best_val_loss=0.65729 early_stop=False time=13.39s

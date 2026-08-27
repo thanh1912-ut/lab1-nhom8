@@ -1,0 +1,5 @@
+2026-08-27 11:16:22,125 | START mlp_sgd_lr0.01_s42 opt=sgd lr=0.01 seed=42 device=mps epochs=2
+2026-08-27 11:16:25,301 | EPOCH 1 train_loss=1.478241
+2026-08-27 11:16:28,555 | EPOCH 2 train_loss=0.755123
+2026-08-27 11:16:28,788 | EPOCH 2 VAL loss=0.687357 acc=0.7617 pre=0.7669 rec=0.7626 f1=0.7614 BEST
+2026-08-27 11:16:28,993 | DONE best_epoch=2 best_val_loss=0.687357 early_stop=False time=6.41s

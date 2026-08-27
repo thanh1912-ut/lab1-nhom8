@@ -1,0 +1,5 @@
+2026-08-27 11:15:50,708 | START mlp_adam_lr0.001_s42 opt=adam lr=0.001 seed=42 device=mps epochs=2
+2026-08-27 11:16:14,540 | EPOCH 1 train_loss=0.538318
+2026-08-27 11:16:18,331 | EPOCH 2 train_loss=0.376583
+2026-08-27 11:16:20,924 | EPOCH 2 VAL loss=0.363772 acc=0.8657 pre=0.8685 rec=0.8649 f1=0.8644 BEST
+2026-08-27 11:16:21,547 | DONE best_epoch=2 best_val_loss=0.363772 early_stop=False time=14.7s

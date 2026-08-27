@@ -1,0 +1,92 @@
+{
+  "mlp_adam_lr0.001_s42": {
+    "run_id": "mlp_adam_lr0.001_s42",
+    "model": "mlp",
+    "optimizer": "adam",
+    "lr": 0.001,
+    "seed": 42,
+    "device": "mps",
+    "epochs": [
+      1,
+      2
+    ],
+    "train_loss": [
+      0.538318,
+      0.376583
+    ],
+    "val_epoch": [
+      2
+    ],
+    "val_loss": [
+      0.363772
+    ],
+    "val_acc": [
+      0.865667
+    ],
+    "val_precision": [
+      0.868469
+    ],
+    "val_recall": [
+      0.864923
+    ],
+    "val_f1": [
+      0.864435
+    ],
+    "best_epoch": 2,
+    "best_val_loss": 0.363772,
+    "stopped_early": false,
+    "done": true,
+    "train_time_sec": 14.7,
+    "test": {
+      "acc": 0.8591,
+      "precision": 0.860526,
+      "recall": 0.8591,
+      "f1": 0.857638
+    }
+  },
+  "mlp_sgd_lr0.01_s42": {
+    "run_id": "mlp_sgd_lr0.01_s42",
+    "model": "mlp",
+    "optimizer": "sgd",
+    "lr": 0.01,
+    "seed": 42,
+    "device": "mps",
+    "epochs": [
+      1,
+      2
+    ],
+    "train_loss": [
+      1.478241,
+      0.755123
+    ],
+    "val_epoch": [
+      2
+    ],
+    "val_loss": [
+      0.687357
+    ],
+    "val_acc": [
+      0.761667
+    ],
+    "val_precision": [
+      0.766884
+    ],
+    "val_recall": [
+      0.762632
+    ],
+    "val_f1": [
+      0.761367
+    ],
+    "best_epoch": 2,
+    "best_val_loss": 0.687357,
+    "stopped_early": false,
+    "done": true,
+    "train_time_sec": 6.41,
+    "test": {
+      "acc": 0.7537,
+      "precision": 0.758545,
+      "recall": 0.7537,
+      "f1": 0.752735
+    }
+  }
+}

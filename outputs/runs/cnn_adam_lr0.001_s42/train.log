@@ -1,0 +1,5 @@
+2026-08-27 11:15:50,708 | START cnn_adam_lr0.001_s42 opt=adam lr=0.001 seed=42 device=mps epochs=2
+2026-08-27 11:16:21,095 | EPOCH 1 train_loss=0.528048
+2026-08-27 11:16:28,259 | EPOCH 2 train_loss=0.333384
+2026-08-27 11:16:28,980 | EPOCH 2 VAL loss=0.315078 acc=0.8863 pre=0.8882 rec=0.8865 f1=0.8844 BEST
+2026-08-27 11:16:29,519 | DONE best_epoch=2 best_val_loss=0.315078 early_stop=False time=22.1s
