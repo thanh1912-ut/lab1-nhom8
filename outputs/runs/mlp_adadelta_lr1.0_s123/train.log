@@ -1,0 +1,7 @@
+2026-08-27 05:01:27,390 | START mlp_adadelta_lr1.0_s123 opt=adadelta lr=1.0 seed=123 device=cuda epochs=150
+2026-08-27 05:01:34,757 | EPOCH 1 train_loss=0.574574
+2026-08-27 05:01:41,720 | EPOCH 2 train_loss=0.399444
+2026-08-27 05:01:48,603 | EPOCH 3 train_loss=0.357331
+2026-08-27 05:01:55,532 | EPOCH 4 train_loss=0.332513
+2026-08-27 05:02:02,557 | EPOCH 5 train_loss=0.315481
+2026-08-27 05:02:03,150 | EPOCH 5 VAL loss=0.400816 acc=0.8568 pre=0.8634 rec=0.8593 f1=0.8569 BEST
