@@ -166,6 +166,11 @@ def backup(cfg, results_path=None, msg=None):
             print(L.colorize("✔ git backup pushed", L.GREEN))
             return True
         print(L.colorize(f"git push failed: {p.stderr}", L.RED))
+        # restore clean remote URL (don't leave a bad token embedded in it)
+        repo_url = gb.get("repo_url", "")
+        if repo_url:
+            _run(["git", "remote", "set-url", "origin", repo_url],
+                 root, check=False)
         return False
     except Exception as e:
         print(L.colorize(f"git backup error: {e}", L.RED))
