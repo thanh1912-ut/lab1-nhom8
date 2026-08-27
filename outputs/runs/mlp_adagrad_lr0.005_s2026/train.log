@@ -1,0 +1,2 @@
+2026-08-27 06:27:21,241 | START mlp_adagrad_lr0.005_s2026 opt=adagrad lr=0.005 seed=2026 device=cuda epochs=150
+2026-08-27 06:27:27,781 | EPOCH 1 train_loss=0.559961
