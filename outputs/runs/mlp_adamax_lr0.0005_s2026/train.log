@@ -1,0 +1,1 @@
+2026-08-27 15:00:35,189 | START mlp_adamax_lr0.0005_s2026 opt=adamax lr=0.0005 seed=2026 device=cuda epochs=150
