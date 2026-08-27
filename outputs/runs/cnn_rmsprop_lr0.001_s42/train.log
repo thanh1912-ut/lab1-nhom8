@@ -1,0 +1,7 @@
+2026-08-27 08:29:39,059 | START cnn_rmsprop_lr0.001_s42 opt=rmsprop lr=0.001 seed=42 device=cuda epochs=150
+2026-08-27 08:29:47,052 | EPOCH 1 train_loss=0.480979
+2026-08-27 08:29:55,087 | EPOCH 2 train_loss=0.318570
+2026-08-27 08:30:03,208 | EPOCH 3 train_loss=0.274742
+2026-08-27 08:30:10,927 | EPOCH 4 train_loss=0.248000
+2026-08-27 08:30:18,692 | EPOCH 5 train_loss=0.227174
+2026-08-27 08:30:19,348 | EPOCH 5 VAL loss=0.249829 acc=0.9060 pre=0.9082 rec=0.9065 f1=0.9058 BEST
