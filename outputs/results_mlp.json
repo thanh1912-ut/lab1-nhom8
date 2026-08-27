@@ -780,5 +780,66 @@
     "stopped_early": false,
     "done": false,
     "train_time_sec": 174.14
+  },
+  "mlp_sgd_lr0.001_s123": {
+    "run_id": "mlp_sgd_lr0.001_s123",
+    "model": "mlp",
+    "optimizer": "sgd",
+    "lr": 0.001,
+    "seed": 123,
+    "device": "cuda",
+    "epochs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "train_loss": [
+      2.258182,
+      2.154848,
+      1.967927,
+      1.671951,
+      1.381293,
+      1.182053,
+      1.052828,
+      0.965537,
+      0.903078,
+      0.856523
+    ],
+    "val_epoch": [
+      5,
+      10
+    ],
+    "val_loss": [
+      1.276026,
+      0.851577
+    ],
+    "val_acc": [
+      0.6255,
+      0.679833
+    ],
+    "val_precision": [
+      0.568583,
+      0.682431
+    ],
+    "val_recall": [
+      0.627737,
+      0.683018
+    ],
+    "val_f1": [
+      0.560037,
+      0.650789
+    ],
+    "best_epoch": 10,
+    "best_val_loss": 0.851577,
+    "stopped_early": false,
+    "done": false,
+    "train_time_sec": 71.09
   }
 }

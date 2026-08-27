@@ -700,5 +700,58 @@
     "stopped_early": false,
     "done": false,
     "train_time_sec": 175.83
+  },
+  "cnn_sgd_lr0.001_s123": {
+    "run_id": "cnn_sgd_lr0.001_s123",
+    "model": "cnn",
+    "optimizer": "sgd",
+    "lr": 0.001,
+    "seed": 123,
+    "device": "cuda",
+    "epochs": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "train_loss": [
+      2.280194,
+      2.153848,
+      1.573424,
+      1.014016,
+      0.852967,
+      0.784172,
+      0.740737,
+      0.709417,
+      0.683372
+    ],
+    "val_epoch": [
+      5
+    ],
+    "val_loss": [
+      0.828541
+    ],
+    "val_acc": [
+      0.686667
+    ],
+    "val_precision": [
+      0.685536
+    ],
+    "val_recall": [
+      0.688325
+    ],
+    "val_f1": [
+      0.661162
+    ],
+    "best_epoch": 5,
+    "best_val_loss": 0.828541,
+    "stopped_early": false,
+    "done": false,
+    "train_time_sec": 72.26
   }
 }
