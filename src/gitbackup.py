@@ -34,11 +34,13 @@ def _setup_remote(cfg, root):
     token = os.environ.get("GITHUB_TOKEN", "")
     repo_url = gb.get("repo_url", "")
     branch = gb.get("branch", "main")
-    if token and repo_url:
-        auth_url = repo_url.replace("https://",
-                                    f"https://{token}@")
-    else:
-        auth_url = None  # fall back to existing origin (local dev)
+    if not token:
+        print(L.colorize(
+            "git backup: GITHUB_TOKEN not set - push needs a token even for "
+            "public repos (clone/pull does not). Skipping backup.", L.YELLOW))
+        return None
+    auth_url = (repo_url.replace("https://", f"https://{token}@")
+                if repo_url else None)
     # ensure git identity
     _run(["git", "config", "user.email", "lab1-bot@users.noreply.github.com"],
          root, check=False)
@@ -98,6 +100,12 @@ def backup(cfg, results_path=None, msg=None):
     root = _repo_root(cfg)
     if not os.path.isdir(os.path.join(root, ".git")):
         print(L.colorize("git backup skipped: not a git repo", L.YELLOW))
+        return False
+    if not os.environ.get("GITHUB_TOKEN"):
+        print(L.colorize(
+            "git backup skipped: GITHUB_TOKEN not set. "
+            "Push (write) needs a token even for public repos - "
+            "add it in Kaggle Secrets to enable auto-backup.", L.YELLOW))
         return False
     try:
         branch = _setup_remote(cfg, root)
