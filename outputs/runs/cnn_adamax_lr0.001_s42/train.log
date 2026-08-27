@@ -1,0 +1,2 @@
+2026-08-27 15:36:18,745 | START cnn_adamax_lr0.001_s42 opt=adamax lr=0.001 seed=42 device=cuda epochs=150
+2026-08-27 15:36:27,251 | EPOCH 1 train_loss=0.647781
