@@ -1,0 +1,1 @@
+2026-08-27 05:09:31,050 | START mlp_adadelta_lr0.5_s123 opt=adadelta lr=0.5 seed=123 device=cuda epochs=150
