@@ -1,0 +1,8 @@
+2026-08-27 05:22:34,510 | START cnn_adadelta_lr0.1_s42 opt=adadelta lr=0.1 seed=42 device=cuda epochs=150
+2026-08-27 05:22:42,802 | EPOCH 1 train_loss=0.760414
+2026-08-27 05:22:50,708 | EPOCH 2 train_loss=0.494405
+2026-08-27 05:22:58,868 | EPOCH 3 train_loss=0.421940
+2026-08-27 05:23:07,243 | EPOCH 4 train_loss=0.381282
+2026-08-27 05:23:15,278 | EPOCH 5 train_loss=0.352239
+2026-08-27 05:23:16,282 | EPOCH 5 VAL loss=0.353170 acc=0.8745 pre=0.8779 rec=0.8751 f1=0.8744 BEST
+2026-08-27 05:23:25,111 | EPOCH 6 train_loss=0.330694
